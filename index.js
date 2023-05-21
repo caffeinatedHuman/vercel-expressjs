@@ -1,18 +1,16 @@
 const express = require("express");
-const path = require('path');
+const path = require("path");
 
 const app = express();
+
+const rootRouter = require("./routes/index");
 
 app.use(express.static("public"));
 
 app.listen(process.env.PORT || 3000);
 
-console.log("Log: path:", path);
-//index.js
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "public") });
-});
+//routes/index.js
+app.use("/", rootRouter);
 
 // index.js
 module.exports = app;
-
