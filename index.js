@@ -1,10 +1,11 @@
 const express = require("express");
 
-
 const app = express();
 
 const adminRouter = require("./routes/admin");
 const rootRouter = require("./routes/index");
+
+app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
