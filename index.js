@@ -3,6 +3,7 @@ const path = require("path");
 
 const app = express();
 
+const adminRouter = require("./routes/admin");
 const rootRouter = require("./routes/index");
 
 app.use(express.static("public"));
@@ -11,6 +12,7 @@ app.listen(process.env.PORT || 3000);
 
 //routes/index.js
 app.use("/", rootRouter);
+app.use("/admin", adminRouter);
 
 // index.js
 module.exports = app;
